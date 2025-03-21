@@ -1,9 +1,10 @@
+
 #include <stdio.h>
 #include <locale.h>
 #include <string.h>
 
 int opcao = 0;
-char login[50], senha[15];  // Aumentei o tamanho de login para 50 para suportar nomes maiores
+char login[50], senha[50];  // Aumentei o tamanho da senha também para 50 caracteres
 
 // Função do cadastro, onde você coloca as credenciais
 void fazerCadastro() {
@@ -11,23 +12,23 @@ void fazerCadastro() {
     scanf(" %[^\n]", login);  // Agora, lê o login com espaços (primeiro nome + sobrenome)
 
     printf("Agora, me manda sua SENHA: ");
-    scanf("%s", senha);  // Agora você coloca a senha, pra garantir que só você vai acessar
+    scanf(" %[^\n]", senha);  // Agora, a senha pode ter espaços
 
     printf("Confirma sua SENHA AI MEU FII: ");
-    scanf("%s", senha);  // Só pra garantir que a senha tá certinha, né? Não queremos erro aqui!
+    scanf(" %[^\n]", senha);  // Confirmação da senha, permitindo espaços
 
     printf("\nCadastro feito com sucesso, pode ficar tranquilo que tá tudo certo!\n\n");
 }
 
 // Função do login, onde você entra no sistema com as suas credenciais
 int fazerLogin() {
-    char loginTentativa[50], senhaTentativa[15];
+    char loginTentativa[50], senhaTentativa[50];  // Alterei o tamanho do array para a senha também
 
     printf("Agora digita seu LOGIN: ");
     scanf(" %[^\n]", loginTentativa);  // Tentando o login que você digitou na hora do cadastro
 
     printf("Agora manda sua SENHA: ");
-    scanf("%s", senhaTentativa);  // Tentando a senha
+    scanf(" %[^\n]", senhaTentativa);  // Tentando a senha, permitindo espaços
 
     // Aqui comparamos se o login e senha que o cara digitou são os mesmos que a gente guardou
     if (strcmp(login, loginTentativa) == 0 && strcmp(senha, senhaTentativa) == 0) {
