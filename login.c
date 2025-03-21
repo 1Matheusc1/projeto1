@@ -3,12 +3,12 @@
 #include <string.h>
 
 int opcao = 0;
-char login[15], senha[15];
+char login[50], senha[15];  // Aumentei o tamanho de login para 50 para suportar nomes maiores
 
 // Função do cadastro, onde você coloca as credenciais
 void fazerCadastro() {
     printf("\nMe diz aí qual vai ser o seu CADASTRO: ");
-    scanf("%s", login);  // Aqui você digita o login, aquele nomezinho esperto
+    scanf(" %[^\n]", login);  // Agora, lê o login com espaços (primeiro nome + sobrenome)
 
     printf("Agora, me manda sua SENHA: ");
     scanf("%s", senha);  // Agora você coloca a senha, pra garantir que só você vai acessar
@@ -21,10 +21,10 @@ void fazerCadastro() {
 
 // Função do login, onde você entra no sistema com as suas credenciais
 int fazerLogin() {
-    char loginTentativa[15], senhaTentativa[15];
+    char loginTentativa[50], senhaTentativa[15];
 
     printf("Agora digita seu LOGIN: ");
-    scanf("%s", loginTentativa);  // Tentando o login que você digitou na hora do cadastro
+    scanf(" %[^\n]", loginTentativa);  // Tentando o login que você digitou na hora do cadastro
 
     printf("Agora manda sua SENHA: ");
     scanf("%s", senhaTentativa);  // Tentando a senha
@@ -39,7 +39,7 @@ int fazerLogin() {
     }
 }
 
-// Função que exibe o menu de opções, pra você escolher o que quer fazer depois de logado
+// Função que exibe o menu de opções
 void mostrarMenu() {
     printf("*************************************\n");
     printf("****** Bem-vindo ao IMOBNIP! ******\n");
@@ -51,22 +51,22 @@ void mostrarMenu() {
 
     printf("Escolha uma opção, vai ser rápida: ");
     scanf("%d", &opcao);  // Aí você escolhe o que vai fazer
-    getchar();  // Só pra limpar o buffer, se alguém te perguntar por que, responde: 'é tipo um vácuo'
+    getchar();  // Só pra limpar o buffer
 }
 
-// Função pra cadastrar os clientes, aquele momento de botar os dados da galera
+// Função para cadastrar os clientes
 void cadastrarClientes() {
     char nome[50], cpf[15], telefone[15];
 
     printf("\nAgora, vamos cadastrar um cliente!\n");
     printf("Qual o nome do cliente? ");
-    scanf(" %[^\n]", nome);  // Aqui você coloca o nome com espaços, se tiver
+    scanf(" %[^\n]", nome);  // Agora você pode colocar o nome do cliente com espaços
 
     printf("Qual o CPF? ");
-    scanf("%s", cpf);  // CPF do cliente, nada de errar aqui hein
+    scanf("%s", cpf);  // CPF do cliente
 
     printf("E o telefone? ");
-    scanf("%s", telefone);  // O telefone da galera também, manda logo
+    scanf("%s", telefone);  // O telefone do cliente
 
     printf("\nCadastro realizado com sucesso!\n");
     printf("Cliente: %s\n", nome);  // Mostra tudo o que você digitou
@@ -74,17 +74,19 @@ void cadastrarClientes() {
     printf("Telefone: %s\n", telefone);
 }
 
-// Função pra cadastrar os corretores, hora de botar os dados da turma que vende
+// Função para cadastrar os corretores
 void cadastrarCorretores() {
     char nome[50], creci[15], telefone[15];
 
     printf("\nAgora, vamos cadastrar um corretor!\n");
     printf("Qual o nome do corretor? ");
-    scanf(" %[^\n]", nome);  // Aqui é o nome do corretor, de novo com espaço
+    scanf(" %[^\n]", nome);  // Nome do corretor
+
     printf("Qual o CRECI? ");
-    scanf("%s", creci);  // CRECI do corretor, obrigatório por lei
+    scanf("%s", creci);  // CRECI do corretor
+
     printf("E o telefone? ");
-    scanf("%s", telefone);  // Telefone do corretor também, se não tiver, não vale
+    scanf("%s", telefone);  // Telefone do corretor
 
     printf("\nCadastro do corretor feito com sucesso!\n");
     printf("Corretor: %s\n", nome);
@@ -95,7 +97,7 @@ void cadastrarCorretores() {
 int main() {
     setlocale(LC_ALL, "");  // Aqui a gente garante que os caracteres especiais (como acento) vão funcionar direitinho
 
-    // Passo 1: Realizar o cadastro, e não pode esquecer de fazer isso, hein, PRESTA ATENÇÃO PAEEE
+    // Passo 1: Realizar o cadastro
     fazerCadastro();
 
     // Passo 2: Agora é a hora do login, tenta até conseguir entrar, relaxa que vai dar certo
