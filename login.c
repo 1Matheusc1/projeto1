@@ -8,10 +8,10 @@ char login[50], senha[50];  // Aumentei o tamanho da senha também para 50 carac
 
 // Função do cadastro, onde você coloca as credenciais
 void fazerCadastro() {
-    printf("\nMe diz aí qual vai ser o seu CADASTRO: ");
+    printf("\nMe diz aí qual vai ser o seu USUARIO: ");
     scanf(" %[^\n]", login);  // Agora, lê o login com espaços (primeiro nome + sobrenome)
 
-    printf("Agora, me manda sua SENHA: ");
+    printf("Agora, digite sua SENHA: ");
     scanf(" %[^\n]", senha);  // Agora, a senha pode ter espaços
 
     printf("Confirma sua SENHA AI MEU FII: ");
@@ -130,4 +130,4 @@ int main() {
 }
 
 
-//TIVE AJUDA, MAIS DEU CERTO, QUEBREI A CABEÇA. ASSISTIR VARIOS VIDEOS KSKS, E CONSEGUIR, UNS 20 VIDEOS KKKL, CUIDAAAA LOGO E VAI ESTUDAR MANNN 
+//TIVE AJUDA, MAIS DEU CERTO, QUEBREI A CABEÇA. ASSISTIR VARIOS VIDEOS KSKS, E CONSEGUIR, UNS 20 VIDEOS KKKL, CUIDAAAA LOGO E VAI ESTUDAR MANNN m
